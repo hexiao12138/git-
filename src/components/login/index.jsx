@@ -1,24 +1,47 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
+import request from '../../api';
 import './index.less';
 import logo from './logo.png';
 @Form.create()
 class Login extends Component {
   validator = (rule,value,callback)=>{
     const name = rule.field==='username' ? '用户名': '密码';
-    
+   
     const reg = /^\w+$/;
     const length = value.length;
     if(!value){
       callback(`${name}不能为空`)
-    }else if(length < 6){
-      callback(`${name}不能小于6位`)
+    }else if(length < 3){
+      callback(`${name}不能小于3位`)
     }else if(length > 14){
       callback(`${name}不能大于14位`)
     }else if(!reg.test(value)){
       callback(`${name}必须是数字、字母、下划线`)
     }
     callback();
+  }
+  handleSubmit = (e)=>{
+    e.preventDefault();
+    //表单验证
+    //收集收据
+    //发送请求
+    this.props.form.validateFields((err,values)=>{
+      if(!err){
+        const {username,password} = values;
+       request(username,password)
+        .then(response=>{
+         this.props.form.replace('/')
+        })
+        .catch(err=>{
+           
+            message.error(err)
+            this.props.form.resetFields(['password'])
+        })
+
+        
+      }
+    })
   }
   render() {
     const { getFieldDecorator } = this.props.form;
