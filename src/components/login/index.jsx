@@ -31,7 +31,7 @@ class Login extends Component {
         const {username,password} = values;
        request(username,password)
         .then(response=>{
-         this.props.form.replace('/')
+         this.props.history.replace('/')
         })
         .catch(err=>{
            

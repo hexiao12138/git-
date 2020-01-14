@@ -14,8 +14,8 @@ axiosInstance.interceptors.request.use(
     }
     if(config.method === 'post'){
        config.data = Object.keys(config.data).reduce((pre,curr)=>{
-         return pre += `&${curr} = ${config.data[curr]}`
-       },'').slice(1);
+         return pre += `&${curr}=${config.data[curr]}`
+       },'').slice(1);      
        config.headers['content-type'] = 'application/x-www-form-urlencoded';
     }
     return config;
