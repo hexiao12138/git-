@@ -1,6 +1,6 @@
-import React,{Component} from 'react';
-import ReactDOM  from 'react-dom';
-import {Provider,connect} from 'react-redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import store from './redux/store';
 import App from './app';
 import './index.less';
