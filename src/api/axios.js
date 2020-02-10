@@ -2,7 +2,7 @@ import axios from 'axios';
 import errCode from '../config/errCode';
 import store from '../redux/store';
 import {removeItem} from '../utils';
-
+import {removeUser} from '../redux/action';
 const axiosInstance = axios.create(
   {
     baseURL: '/api',
@@ -34,7 +34,7 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-//相应拦截器
+//响应拦截器
 
 axiosInstance.interceptors.response.use(
   //响应成功
@@ -54,8 +54,8 @@ axiosInstance.interceptors.response.use(
      if(err.response.status === 401){
        //清空用户数据
        removeItem('user');
-      //跳转到登录地址
-
+      store.dispatch(removeUser());
+      
      }
       errMsg = errCode[err.response.status]
      }else{

@@ -25,4 +25,34 @@ export function reqAddCategories (categoryName){
       categoryName
     }
   })
+};
+export function reqUpdateCategories (categoryName,categoryId){
+  return axiosInstance({
+    url: '/category/update',
+    method: 'POST',
+    data:{
+      categoryName,
+      categoryId
+    }
+  })
+};
+
+export function reqDeleteCategories (categoryId){
+  return axiosInstance({
+    url: '/category/delete',
+    method: 'POST',
+    data:{   
+      categoryId
+    }
+  })
+};
+export function reqProduct (pageNum,pageSize) {
+  return axiosInstance({
+    url: '/product/list',
+    method: 'GET',
+    params:{
+      pageNum,
+      pageSize
+    }
+  })
 }

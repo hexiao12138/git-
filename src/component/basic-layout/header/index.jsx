@@ -75,7 +75,7 @@ const title = useMemo(() => {
     if (menu.children) {
       for (let index = 0; index < menu.children.length; index++) {
         const cMenu = menu.children[index];
-        if (cMenu.path === pathname) {
+        if (pathname.indexOf(cMenu.path) !== -1) {
           return cMenu.title;
         }
       }
@@ -86,6 +86,7 @@ const title = useMemo(() => {
     }
   }
 }, [pathname]);
+
   return(
     
       <div className='headMain'>

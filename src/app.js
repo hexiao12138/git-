@@ -20,13 +20,14 @@ import routes from './config/routes';
     <ConfigProvider locale={language === 'en'? enUS : zhCN}>
       <IntlProvider locale={language} messages={message}>
       <Router>
-        <Switch>
-          <Route path='/login' exact component={Login}/>       
-          <BasicLayOut>
+        <Switch> 
+        <BasicLayOut>
             {
               routes.map((route)=> <Route {...route} key={route.path}></Route>)
             }
-          </BasicLayOut>         
+          </BasicLayOut> 
+          <Route path='/login' exact component={Login}/>       
+                  
         </Switch>
       
       </Router>

@@ -1,3 +1,8 @@
 
-
- 
+export const REMOVE_USER = 'REMOVE_USER';
+export const CHANGE_LANUAGE = 'CHANGE_LANUAGE';
+export const SAVE_USER = 'SAVE_USER';
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const UPDATE_CATEGORY = 'UPDATE_CATEGORY';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';

@@ -64,7 +64,9 @@ const {SubMenu}  = Menu;
    }, []
  );
   
-       
+ if(pathname.indexOf('/product') !== -1){
+   pathname = '/product'
+ };
    
      
    

@@ -2,7 +2,7 @@ import React,{useImperativeHandle}from 'react';
 import {Form,Input} from 'antd';
 import { forwardRef } from 'react';
 
- function AddCategoryFrom ({form:{getFieldDecorator,validateFields,resetFields}},ref) {
+ function AddCategoryFrom ({form:{getFieldDecorator,validateFields,resetFields},categoryName},ref) {
   useImperativeHandle(ref, () => ({
     validateFields,
     resetFields
@@ -19,6 +19,7 @@ import { forwardRef } from 'react';
                 message: '请输入分类名称',
               },
             ],
+            initialValue: categoryName
           })(<Input placeholder='请输入分类名称'/>)}
       </Item>
      
